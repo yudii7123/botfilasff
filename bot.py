@@ -1,5 +1,8 @@
 from flask import Flask
 import threading
+import os
+import discord
+from discord.ext import commands
 
 app = Flask('')
 
@@ -10,6 +13,7 @@ def home():
 def run():
     app.run(host='0.0.0.0', port=8080)
 
+# Inicia o Flask em background sem bloquear o bot
 threading.Thread(target=run, daemon=True).start()
 
 import io
