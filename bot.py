@@ -1,8 +1,13 @@
 from flask import Flask
 import threading
+import io
 import os
+import random
 import discord
+from discord import app_commands
 from discord.ext import commands
+from dotenv import load_dotenv
+import qrcode
 
 app = Flask('')
 
@@ -13,18 +18,7 @@ def home():
 def run():
     app.run(host='0.0.0.0', port=8080)
 
-# Inicia o Flask em background sem bloquear o bot
 threading.Thread(target=run, daemon=True).start()
-
-import io
-import os
-import random
-import discord
-from discord import app_commands
-from discord.ext import commands
-from dotenv import load_dotenv
-import qrcode
-
 # Carrega as variáveis de ambiente do arquivo .env
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
